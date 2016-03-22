@@ -1,0 +1,14 @@
+<% content_for :title do %>
+Movies
+<%end%>
+<h4 class="list-group-item active">List of Movies</h4>
+  <ul class="list-group">
+  <% @movies.each do |movie| %>
+    <li class="list-group-item">
+      <%= movie.title %>
+      <%=  button_to "Show", movie_path(movie.id), :class => "button", method: :get  %>
+    <%=  button_to "Edit", edit_movie_path(movie.id), :class => "button", method: :get  %>
+    <%=  button_to "Delete", movie, :class => "button", method: :delete,data: { confirm: 'Silmek üzeresin.Emin misin?',:class => "ui inverted red button" }  %>
+    </li>
+<% end %>
+  </ul>

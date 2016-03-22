@@ -1,0 +1,36 @@
+<%= form_for @movies do |m| %>
+  <% if @movies.errors.any? %>
+    <div id="error_explanation" class="ui message">
+      <div class="header"><%= pluralize(@movies.errors.count, "Hata") %> Kaydedemezsiniz!</div>
+      <ul>
+      <% @movies.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= m.label :title %><br>
+    <%= m.text_field :title %>
+  </div>
+  <div class="field">
+    <%= m.label :description %><br>
+    <%= m.text_area :description %>
+  </div>
+  <div class="field">
+    <%= m.label :director %><br>
+    <%= m.text_field :director %>
+  </div>
+  <div class="field">
+    <%= m.label :country %><br>
+    <%= m.text_field :country %>
+  </div>
+  <div class="field">
+    <%= m.label :date %><br>
+    <%= m.number_field :date %>
+  </div>
+  <div class="actions">
+    <%= m.submit 'Save', :class => 'ui submit button' %>
+  </div>
+<% end %>

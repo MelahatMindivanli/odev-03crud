@@ -1,0 +1,16 @@
+<% content_for :title do %>
+<%= @movies.title %>
+<%end%>
+<h4>Details of Movies</h4>
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-info"><%= @movies.title %> </li>
+    <li class="list-group-item"><b>Description:</b><%= @movies.description %> </li>
+    <li class="list-group-item"><b>Director:</b><%= @movies.director %> </li>
+    <li class="list-group-item"> <b>Country:</b><%= @movies.country %> </li>
+    <li class="list-group-item"><b>Date:</b><%= @movies.date %> </li>
+  </ul>
+  <br/>
+
+  <%=  button_to "Index", movies_path, :class => "button", method: :get  %>
+  <br/>
+  <%=  button_to "Edit", edit_movie_path(@movies.id), :class => "button", method: :get  %>
